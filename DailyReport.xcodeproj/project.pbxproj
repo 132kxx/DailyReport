@@ -11,6 +11,12 @@
 		B457B87A295736EF000B6688 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B457B879295736EF000B6688 /* ContentView.swift */; };
 		B457B87C295736F1000B6688 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B457B87B295736F1000B6688 /* Assets.xcassets */; };
 		B457B880295736F1000B6688 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B457B87F295736F1000B6688 /* Preview Assets.xcassets */; };
+		B457B88829573782000B6688 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B457B88729573782000B6688 /* HomeView.swift */; };
+		B49DAEB929595C97001E598C /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B49DAEB829595C97001E598C /* ViewModel.swift */; };
+		B49DAEBC29595CBC001E598C /* mainModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B49DAEBB29595CBC001E598C /* mainModel.swift */; };
+		B49DAEBE29596014001E598C /* MonthPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B49DAEBD29596014001E598C /* MonthPickerView.swift */; };
+		B49DAEC02959608F001E598C /* DatePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B49DAEBF2959608F001E598C /* DatePickerView.swift */; };
+		B49DAEC4295960EB001E598C /* TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B49DAEC3295960EB001E598C /* TableView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,6 +26,12 @@
 		B457B87B295736F1000B6688 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B457B87D295736F1000B6688 /* DailyReport.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = DailyReport.entitlements; sourceTree = "<group>"; };
 		B457B87F295736F1000B6688 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		B457B88729573782000B6688 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		B49DAEB829595C97001E598C /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
+		B49DAEBB29595CBC001E598C /* mainModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mainModel.swift; sourceTree = "<group>"; };
+		B49DAEBD29596014001E598C /* MonthPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthPickerView.swift; sourceTree = "<group>"; };
+		B49DAEBF2959608F001E598C /* DatePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerView.swift; sourceTree = "<group>"; };
+		B49DAEC3295960EB001E598C /* TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,6 +64,9 @@
 		B457B876295736EF000B6688 /* DailyReport */ = {
 			isa = PBXGroup;
 			children = (
+				B49DAEBA29595CB4001E598C /* Model */,
+				B49DAEB729595C87001E598C /* ViewModel */,
+				B457B88629573777000B6688 /* View */,
 				B457B877295736EF000B6688 /* DailyReportApp.swift */,
 				B457B879295736EF000B6688 /* ContentView.swift */,
 				B457B87B295736F1000B6688 /* Assets.xcassets */,
@@ -67,6 +82,33 @@
 				B457B87F295736F1000B6688 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		B457B88629573777000B6688 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				B457B88729573782000B6688 /* HomeView.swift */,
+				B49DAEBD29596014001E598C /* MonthPickerView.swift */,
+				B49DAEBF2959608F001E598C /* DatePickerView.swift */,
+				B49DAEC3295960EB001E598C /* TableView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		B49DAEB729595C87001E598C /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				B49DAEB829595C97001E598C /* ViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		B49DAEBA29595CB4001E598C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				B49DAEBB29595CBC001E598C /* mainModel.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -139,7 +181,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B457B88829573782000B6688 /* HomeView.swift in Sources */,
+				B49DAEBC29595CBC001E598C /* mainModel.swift in Sources */,
+				B49DAEB929595C97001E598C /* ViewModel.swift in Sources */,
 				B457B87A295736EF000B6688 /* ContentView.swift in Sources */,
+				B49DAEC02959608F001E598C /* DatePickerView.swift in Sources */,
+				B49DAEC4295960EB001E598C /* TableView.swift in Sources */,
+				B49DAEBE29596014001E598C /* MonthPickerView.swift in Sources */,
 				B457B878295736EF000B6688 /* DailyReportApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
