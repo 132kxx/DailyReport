@@ -12,12 +12,12 @@
 		B457B87C295736F1000B6688 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B457B87B295736F1000B6688 /* Assets.xcassets */; };
 		B457B880295736F1000B6688 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B457B87F295736F1000B6688 /* Preview Assets.xcassets */; };
 		B457B88829573782000B6688 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B457B88729573782000B6688 /* HomeView.swift */; };
-		B45F3671295AA1DD000A279B /* pickerpra.swift in Sources */ = {isa = PBXBuildFile; fileRef = B45F3670295AA1DD000A279B /* pickerpra.swift */; };
 		B49DAEB929595C97001E598C /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B49DAEB829595C97001E598C /* ViewModel.swift */; };
 		B49DAEBC29595CBC001E598C /* mainModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B49DAEBB29595CBC001E598C /* mainModel.swift */; };
 		B49DAEBE29596014001E598C /* MonthPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B49DAEBD29596014001E598C /* MonthPickerView.swift */; };
 		B49DAEC02959608F001E598C /* DatePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B49DAEBF2959608F001E598C /* DatePickerView.swift */; };
 		B49DAEC4295960EB001E598C /* TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B49DAEC3295960EB001E598C /* TableView.swift */; };
+		B4F12789295BF6640078C46E /* pra.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4F12788295BF6640078C46E /* pra.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,12 +28,12 @@
 		B457B87D295736F1000B6688 /* DailyReport.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = DailyReport.entitlements; sourceTree = "<group>"; };
 		B457B87F295736F1000B6688 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		B457B88729573782000B6688 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
-		B45F3670295AA1DD000A279B /* pickerpra.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = pickerpra.swift; sourceTree = "<group>"; };
 		B49DAEB829595C97001E598C /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		B49DAEBB29595CBC001E598C /* mainModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mainModel.swift; sourceTree = "<group>"; };
 		B49DAEBD29596014001E598C /* MonthPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthPickerView.swift; sourceTree = "<group>"; };
 		B49DAEBF2959608F001E598C /* DatePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerView.swift; sourceTree = "<group>"; };
 		B49DAEC3295960EB001E598C /* TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableView.swift; sourceTree = "<group>"; };
+		B4F12788295BF6640078C46E /* pra.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = pra.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,7 +93,7 @@
 				B49DAEBD29596014001E598C /* MonthPickerView.swift */,
 				B49DAEBF2959608F001E598C /* DatePickerView.swift */,
 				B49DAEC3295960EB001E598C /* TableView.swift */,
-				B45F3670295AA1DD000A279B /* pickerpra.swift */,
+				B4F12788295BF6640078C46E /* pra.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -186,10 +186,10 @@
 			files = (
 				B457B88829573782000B6688 /* HomeView.swift in Sources */,
 				B49DAEBC29595CBC001E598C /* mainModel.swift in Sources */,
-				B45F3671295AA1DD000A279B /* pickerpra.swift in Sources */,
 				B49DAEB929595C97001E598C /* ViewModel.swift in Sources */,
 				B457B87A295736EF000B6688 /* ContentView.swift in Sources */,
 				B49DAEC02959608F001E598C /* DatePickerView.swift in Sources */,
+				B4F12789295BF6640078C46E /* pra.swift in Sources */,
 				B49DAEC4295960EB001E598C /* TableView.swift in Sources */,
 				B49DAEBE29596014001E598C /* MonthPickerView.swift in Sources */,
 				B457B878295736EF000B6688 /* DailyReportApp.swift in Sources */,

@@ -8,27 +8,56 @@
 import SwiftUI
 
 struct TableView: View {
+    let screenWidth = UIScreen.main.bounds.width
+    let screenHidth = UIScreen.main.bounds.height
+    
+    
     @ObservedObject var viewModel = ViewModel()
+    @State var showPop: Bool = false
     
     var body: some View {
-        ScrollView(showsIndicators: false) {
-            ForEach(viewModel.modelData) { model in
-                HStack {
-                    Text("\(model.hour)")
-                        .frame(width: 50, height: 50)
+        
+        ZStack {
+            ScrollView(showsIndicators: false) {
+                ForEach(viewModel.modelData) { model in
+                    HStack {
+                        Text("\(model.hour)")
+                            .frame(width: screenWidth / 7, height: screenWidth / 8)
+                        
+                        Rectangle()
+                            .foregroundColor(.clear)
+                            .background {
+                                    Text("\(model.content)")
+                                        .frame(maxWidth: .infinity, alignment: .leading)
+                            }
+                            .contentShape(Rectangle())
+                            
+                            .onTapGesture {
+                                showPop = true
+                                print("ok")
+                            }
+                           
+                    }
                     
+                }
+            }
 
+            if showPop {
+                VStack {
+                    Spacer()
                     Rectangle()
-                        .foregroundColor(.clear)
+                        .edgesIgnoringSafeArea(.bottom)
+                        .frame(height: 300)
                         .background {
-                            Text("\(model.content)")
-                                .frame(maxWidth: .infinity, alignment: .leading)
-                        }
-                        .onTapGesture {
-                            print("ok")
+                            VStack {
+                                Text("hello")
+                                Text("hello")
+                            }
                         }
                 }
             }
+            
+            
         }
     }
 }
@@ -36,5 +65,6 @@ struct TableView: View {
 struct TableView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
+            .preferredColorScheme(.dark)
     }
 }

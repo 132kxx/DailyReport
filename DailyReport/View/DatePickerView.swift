@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct DatePickerView: View {
+
     @State var selectedIndex: Int = 0
     var drag: some Gesture {
         DragGesture()
@@ -18,24 +19,18 @@ struct DatePickerView: View {
     
     var body: some View {
         VStack {
-            Text("\(selectedIndex)")
             ScrollViewReader {proxy in
                 ScrollView(.horizontal, showsIndicators: false) {
                     LazyHStack(spacing: 30) {
-                            ForEach(1 ..< 33) {index in
+                            ForEach(1 ..< 32) {index in
                                 Text("\(index)")
                                     .id(index)
                             }
-                            .onChange(of: index) { _ in
-                                if proxy == index {
-                                    selectedIndex
-                                }
-                            }
-
                     }
                     .frame(height: 50)
                     
                 }
+
 
 
             }
@@ -49,6 +44,6 @@ struct DatePickerView: View {
 
 struct DatePickerView_Previews: PreviewProvider {
     static var previews: some View {
-        DatePickerView()
+        ContentView()
     }
 }
