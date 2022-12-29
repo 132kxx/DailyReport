@@ -14,6 +14,7 @@ struct TableView: View {
     
     @ObservedObject var viewModel = ViewModel()
     @State var showPop: Bool = false
+    @State var writedText: String = ""
     
     var body: some View {
         
@@ -32,9 +33,11 @@ struct TableView: View {
                             }
                             .contentShape(Rectangle())
                             
-                            .onTapGesture {
+                            .onLongPressGesture(perform: {
                                 showPop = true
                                 print("ok")
+                            }) {_ in
+                                self.foregroundColor(.gray)
                             }
                            
                     }
@@ -45,15 +48,56 @@ struct TableView: View {
             if showPop {
                 VStack {
                     Spacer()
-                    Rectangle()
-                        .edgesIgnoringSafeArea(.bottom)
-                        .frame(height: 300)
-                        .background {
-                            VStack {
-                                Text("hello")
-                                Text("hello")
+                    VStack {
+                        HStack {
+                            Button {
+                                showPop = false
+                            } label: {
+                                Text("cancel")
+                                    .foregroundColor(.red)
                             }
+
+                            Spacer()
+                            Text("submit")
                         }
+                        //적혀져있떤거
+                        Text("계획했던 일")
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                            .offset(x:8, y: 10)
+                            .zIndex(0)
+                            .background(Color.gray)
+                        
+                        ZStack {
+                            RoundedRectangle(cornerRadius: 10)
+                                .stroke()
+                                .frame(height: 50)
+                            
+                                
+                            TextField("뭐라도 입력을 하세요", text: $writedText)
+                                .padding(.leading)
+                        }
+                       
+                        //적을꺼
+                        Text("내가한 일")
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                            .offset(x:8, y: 10)
+                            .zIndex(0)
+                            .background(Color.gray)
+                        
+                        ZStack {
+                            RoundedRectangle(cornerRadius: 10)
+                                .stroke()
+                                .frame(height: 50)
+                            
+                            TextField("뭐라도 입력을 하세요", text: $writedText)
+                                .padding(.leading)
+                        }
+                        
+ 
+                    }
+                    .frame(maxWidth: .infinity)
+                    .padding([.horizontal, .top], 10)
+                    .background(Color.gray)
                 }
             }
             
@@ -65,6 +109,6 @@ struct TableView: View {
 struct TableView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
-            .preferredColorScheme(.dark)
+//            .preferredColorScheme(.dark)
     }
 }
