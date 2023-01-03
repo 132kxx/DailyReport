@@ -33,12 +33,7 @@ struct TableView: View {
                             }
                             .contentShape(Rectangle())
                             
-                            .onLongPressGesture(perform: {
-                                showPop = true
-                                print("ok")
-                            }) {_ in
-                                self.foregroundColor(.gray)
-                            }
+                            
                            
                     }
                     

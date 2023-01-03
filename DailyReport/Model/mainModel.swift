@@ -12,3 +12,14 @@ struct model: Identifiable {
     var hour: String
     var content: String
 }
+
+struct month {
+    var dates: [ndate]
+}
+
+struct ndate {
+    var time: [String] = ["9", "10"]
+    var content: String
+    
+}
+

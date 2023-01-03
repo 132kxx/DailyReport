@@ -16,8 +16,6 @@ struct HomeView: View {
 
     var body: some View {
         VStack {
-            MonthPickerView()
-            
             DatePickerView()
                         
             TableView()

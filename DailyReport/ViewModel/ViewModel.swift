@@ -30,3 +30,11 @@ class ViewModel: ObservableObject {
         model(hour: "12", content: "하겠찌")
     ]
 }
+
+//struct dateModel {
+//    var month: String
+//    var date: String
+//    var time: [String]
+//}
+
+

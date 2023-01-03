@@ -1,52 +1,58 @@
-////
-////  pra.swift
-////  DailyReport
-////
-////  Created by kxx: on 2022/12/28.
-////
+//
 //
 //import SwiftUI
 //
 //struct pra: View {
-//    @State var showup: Bool = false
-//    var body: some View {
-//        Button {
-//            showup = true
-//        } label: {
-//            Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-//        }
-//            VStack {
-//                //headline button
-//                HStack {
-//                    Button {
-//                        showup = false
-//                    } label: {
-//                        Text("cancel")
-//                    }
+//    var datess: [String] = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"]
+//    @State var presentedValue: Int = 5
+//    
 //
-//                    
-//                    Spacer()
+//    
+//    var body: some View {
+//        ScrollViewReader { proxy in
+//            ScrollView(.horizontal) {
+//                HStack(spacing: 50) {
+//                    Button {
+//                        if presentedValue != 0 {
+//                            presentedValue -= 1
+//                        }
+//                    } label: {
+//                        Text("\(datess[presentedValue-2])")
+//                    }
 //                    
 //                    Button {
 //                        //
 //                    } label: {
-//                        Text("submit")
+//                        Text("\(datess[presentedValue-1])")
 //                    }
+//                    
+//                    Button {
+//                        //
+//                    } label: {
+//                        Text("\(datess[presentedValue])")
+//                            .font(.title)
+//                    }
+//                    
+//                    Button {
+//                        //
+//                    } label: {
+//                        Text("\(datess[presentedValue+1])")
+//                    }
+//                    
+//                    Button {
+//                        if presentedValue+3 != date.count {
+//                            presentedValue += 1
+//                        }
+//                    } label: {
+//                        Text("\(datess[presentedValue+2])")
+//                    }
+//                    
 //                }
-//                .padding(20)
-//                
-//                //textfield
-//                Text("edit your content")
-//                    .font(.headline)
-//                    .padding()
-//                    .frame(maxWidth: .infinity, alignment: .leading)
-//                
-//
-//                Spacer()
 //            }
 //        }
 //    }
 //}
+//
 //struct pra_Previews: PreviewProvider {
 //    static var previews: some View {
 //        pra()
