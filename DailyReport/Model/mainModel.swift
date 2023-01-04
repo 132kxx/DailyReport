@@ -13,13 +13,8 @@ struct model: Identifiable {
     var content: String
 }
 
-struct month {
-    var dates: [ndate]
-}
-
-struct ndate {
-    var time: [String] = ["9", "10"]
+struct content {
+    var date: String
+    var timelist: String
     var content: String
-    
 }
-
