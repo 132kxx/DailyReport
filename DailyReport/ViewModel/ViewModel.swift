@@ -12,6 +12,7 @@ class ViewModel: ObservableObject {
     
     
     let modelData = [
+        model(hour: "8", content: "배드민턴"),
         model(hour: "9", content: "기상하기"),
         model(hour: "10", content: "아침정리"),
         model(hour: "11", content: "운동"),
