@@ -17,7 +17,6 @@ struct TableView: View {
     @State var writedText: String = ""
     
     var body: some View {
-        
         ZStack {
             ScrollView(showsIndicators: false) {
                 ForEach(viewModel.modelData) { model in
@@ -32,11 +31,7 @@ struct TableView: View {
                                         .frame(maxWidth: .infinity, alignment: .leading)
                             }
                             .contentShape(Rectangle())
-                            
-                            
-                           
                     }
-                    
                 }
             }
             // time line
