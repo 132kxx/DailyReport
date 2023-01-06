@@ -12,9 +12,9 @@ struct DatePickerView: View {
     var months: [String] = ["January", "Febuary", "March", "April", "May", "June", "July", "August", "September",
     "October", "November", "December"]
     
-    @State var presentYear: String = "2023"
+    @State var presentYear: String = "2013"
     @State var presentMonth: String = "January"
-    @State var presentDate: String = "2023January10"
+    @State var presentDate: String = "2013January22"
     
    
     
@@ -63,7 +63,6 @@ struct DatePickerView: View {
                 }
             }
             
-            
             Circle()
                 .frame(width: 5, height: 5)
                 .foregroundColor(.red)
@@ -77,3 +76,4 @@ struct DatePickerView_Previews: PreviewProvider {
         ContentView()
     }
 }
+
