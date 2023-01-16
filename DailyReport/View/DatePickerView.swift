@@ -9,6 +9,7 @@ import SwiftUI
 
 struct DatePickerView: View {
     
+    
     let now = Date()
     let calendar = Calendar.current
     let monthInt = Calendar.current.component(.month, from: Date())
@@ -29,12 +30,12 @@ struct DatePickerView: View {
         VStack {
             // month, year stack
             HStack() {
-                    Text(monthStr)
+                Text(Date().toString("MMMM"))
                         .font(.system(size: 40))
                         .padding(.leading, 20)
                         .fontWeight(.bold)
                 
-                    Text(yearInt)
+                    Text(Date().toString("YYYY"))
                     .foregroundColor(.secondary)
                 
 
@@ -79,3 +80,10 @@ struct DatePickerView_Previews: PreviewProvider {
     }
 }
 
+extension Date {
+    func toString(_ format: String) -> String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = format
+        return formatter.string(from: self)
+    }
+}
