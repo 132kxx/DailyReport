@@ -16,7 +16,6 @@
 		B49DAEBC29595CBC001E598C /* mainModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B49DAEBB29595CBC001E598C /* mainModel.swift */; };
 		B49DAEC02959608F001E598C /* DatePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B49DAEBF2959608F001E598C /* DatePickerView.swift */; };
 		B49DAEC4295960EB001E598C /* TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B49DAEC3295960EB001E598C /* TableView.swift */; };
-		B4F12789295BF6640078C46E /* pra.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4F12788295BF6640078C46E /* pra.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,7 +30,6 @@
 		B49DAEBB29595CBC001E598C /* mainModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mainModel.swift; sourceTree = "<group>"; };
 		B49DAEBF2959608F001E598C /* DatePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerView.swift; sourceTree = "<group>"; };
 		B49DAEC3295960EB001E598C /* TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableView.swift; sourceTree = "<group>"; };
-		B4F12788295BF6640078C46E /* pra.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = pra.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,7 +87,6 @@
 			children = (
 				B49DAEBF2959608F001E598C /* DatePickerView.swift */,
 				B49DAEC3295960EB001E598C /* TableView.swift */,
-				B4F12788295BF6640078C46E /* pra.swift */,
 				B457B88729573782000B6688 /* HomeView.swift */,
 			);
 			path = View;
@@ -186,7 +183,6 @@
 				B49DAEB929595C97001E598C /* ViewModel.swift in Sources */,
 				B457B87A295736EF000B6688 /* ContentView.swift in Sources */,
 				B49DAEC02959608F001E598C /* DatePickerView.swift in Sources */,
-				B4F12789295BF6640078C46E /* pra.swift in Sources */,
 				B49DAEC4295960EB001E598C /* TableView.swift in Sources */,
 				B457B878295736EF000B6688 /* DailyReportApp.swift in Sources */,
 			);

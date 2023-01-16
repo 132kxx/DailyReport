@@ -8,25 +8,33 @@
 import SwiftUI
 
 struct DatePickerView: View {
-    var years: [String] = ["2023"]
-    var months: [String] = ["January", "Febuary", "March", "April", "May", "June", "July", "August", "September",
-    "October", "November", "December"]
     
-    @State var presentYear: String = "2013"
-    @State var presentMonth: String = "January"
-    @State var presentDate: String = "2013January22"
+    let now = Date()
+    let calendar = Calendar.current
+    let monthInt = Calendar.current.component(.month, from: Date())
+    let yearInt = String(Calendar.current.component(.year, from: Date()))
+    var monthStr : String {
+        get  {
+            return Calendar.current.monthSymbols[monthInt-1]
+        }
+    }
     
-   
+    var range : Range<Int> {
+        get {
+            return calendar.range(of: .day, in: .month, for: Date())! //
+        }
+    }
     
     var body: some View {
         VStack {
+            // month, year stack
             HStack() {
-                    Text(presentMonth)
+                    Text(monthStr)
                         .font(.system(size: 40))
                         .padding(.leading, 20)
                         .fontWeight(.bold)
                 
-                    Text(presentYear)
+                    Text(yearInt)
                     .foregroundColor(.secondary)
                 
 
@@ -36,30 +44,24 @@ struct DatePickerView: View {
             ScrollViewReader {proxy in
                 ScrollView(.horizontal, showsIndicators: false) {
                     LazyHStack(spacing: 30) {
-                        ForEach(years, id: \.self) { year in
-                            ForEach(months, id: \.self){month in
-                                ForEach(1 ..< 31) {index in
-                                    let presentDate = year+month+String("\(index)")
+                                ForEach(range, id: \.self) {index in
                                     Button {
                                         withAnimation {
-                                            proxy.scrollTo(presentDate, anchor: .center)
-                                            presentYear = year
-                                            presentMonth = month
+                                            let today = index
+                                            proxy.scrollTo(today, anchor: .center)
                                         }
                                     } label: {
                                         Text("\(index)")
-                                            .id(presentDate)
+                                            .id(monthInt+index)
                                             .foregroundColor(.black)
                                     }
-
                                 }
-                            }
-                        }
                     }
                     .frame(height: 50)
                     .padding(.horizontal, 20)
                 }.onAppear{
-                    proxy.scrollTo(presentDate, anchor: .center)
+                    let today = calendar.component(.day, from: Date())
+                    proxy.scrollTo(monthInt+today, anchor: .center)
                 }
             }
             
