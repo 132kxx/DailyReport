@@ -13,8 +13,3 @@ struct model: Identifiable {
     var content: String
 }
 
-struct content {
-    var date: String
-    var timelist: String
-    var content: String
-}

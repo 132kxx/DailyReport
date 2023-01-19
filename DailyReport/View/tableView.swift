@@ -19,35 +19,39 @@ struct TableView: View {
     var body: some View {
         ZStack {
             ScrollView(showsIndicators: false) {
-                ForEach(viewModel.modelData) { model in
+                ForEach(viewModel.models) { dummy in
                     HStack {
-                        Text("\(model.hour)")
+                        Text("\(dummy.hour)")
                             .frame(width: screenWidth / 7, height: screenWidth / 8)
                         
                         Rectangle()
                             .foregroundColor(.clear)
                             .background {
-                                    Text("\(model.content)")
+                                Button {
+//                                    viewmodel.editData(2, "hi")
+                                } label: {
+                                    Text("\(dummy.content)")
                                         .frame(maxWidth: .infinity, alignment: .leading)
+                                }
                             }
                             .contentShape(Rectangle())
                     }
                 }
             }
             // time line
-            HStack(spacing: -3) {
-                Image(systemName: "triangle")
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .frame(width: 17)
-                    .rotationEffect(Angle(degrees: 90))
-                    .foregroundColor(.red)
-                Rectangle()
-                    .frame(height: 1)
-                    .foregroundColor(.red)
-            }
-            .padding(.horizontal, -1)
-            
+//            HStack(spacing: -3) {
+//                Image(systemName: "triangle")
+//                    .resizable()
+//                    .aspectRatio(contentMode: .fit)
+//                    .frame(width: 17)
+//                    .rotationEffect(Angle(degrees: 90))
+//                    .foregroundColor(.red)
+//                Rectangle()
+//                    .frame(height: 1)
+//                    .foregroundColor(.red)
+//            }
+//            .padding(.horizontal, -1)
+//
             
             //sheet view
 //            if showPop {
