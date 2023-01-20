@@ -12,29 +12,45 @@ struct TableView: View {
     let screenHidth = UIScreen.main.bounds.height
     
     
-    @ObservedObject var viewModel = ViewModel()
+    
+    @ObservedObject var viewmodel = ViewModel()
     @State var showPop: Bool = false
     @State var writedText: String = ""
+    @State var sheetValue: Bool = false
+    @State var presentText: String = ""
     
     var body: some View {
         ZStack {
             ScrollView(showsIndicators: false) {
-                ForEach(viewModel.models) { dummy in
+                ForEach(0..<viewmodel.models.count) { index in
                     HStack {
-                        Text("\(dummy.hour)")
+                        Text(viewmodel.modelData[index].hour)
                             .frame(width: screenWidth / 7, height: screenWidth / 8)
                         
                         Rectangle()
                             .foregroundColor(.clear)
                             .background {
                                 Button {
-//                                    viewmodel.editData(2, "hi")
+                                    sheetValue.toggle()
                                 } label: {
-                                    Text("\(dummy.content)")
+                                    Text(viewmodel.modelData[index].content)
                                         .frame(maxWidth: .infinity, alignment: .leading)
                                 }
                             }
                             .contentShape(Rectangle())
+                            .sheet(isPresented: $sheetValue) {
+                                VStack {
+                                    HStack {
+                                        Spacer()
+                                        Image(systemName: "multiply.circle")
+                                    }
+//                                    Text(Text(viewmodel.modelData[index].content))
+                                    
+                                    TextField("변경할 내용을 입력해주세요", text: $presentText)
+                                }
+                                    .presentationDetents([.height(200)])
+                                    .presentationDragIndicator(.hidden)
+                            }
                     }
                 }
             }
