@@ -11,18 +11,15 @@ struct TableView: View {
     let screenWidth = UIScreen.main.bounds.width
     let screenHidth = UIScreen.main.bounds.height
     
-    
-    
     @ObservedObject var viewmodel = ViewModel()
-    @State var showPop: Bool = false
-    @State var writedText: String = ""
     @State var sheetValue: Bool = false
     @State var presentText: String = ""
+    @State var buttonValue: String = ""
     
     var body: some View {
         ZStack {
             ScrollView(showsIndicators: false) {
-                ForEach(0..<viewmodel.models.count) { index in
+                ForEach(0..<viewmodel.models.count, id: \.self) { index in
                     HStack {
                         Text(viewmodel.modelData[index].hour)
                             .frame(width: screenWidth / 7, height: screenWidth / 8)
@@ -31,6 +28,7 @@ struct TableView: View {
                             .foregroundColor(.clear)
                             .background {
                                 Button {
+                                    buttonValue = viewmodel.modelData[index].hour
                                     sheetValue.toggle()
                                 } label: {
                                     Text(viewmodel.modelData[index].content)
@@ -39,17 +37,50 @@ struct TableView: View {
                             }
                             .contentShape(Rectangle())
                             .sheet(isPresented: $sheetValue) {
-                                VStack {
-                                    HStack {
-                                        Spacer()
-                                        Image(systemName: "multiply.circle")
-                                    }
-//                                    Text(Text(viewmodel.modelData[index].content))
+                                VStack(spacing: 15) {
                                     
-                                    TextField("변경할 내용을 입력해주세요", text: $presentText)
+                                    Text("\(buttonValue)")
+                                        .fontWeight(.bold)
+                                        .frame(maxWidth: .infinity, alignment: .leading)
+                                        .padding(.top)
+                                        .onAppear {
+                                            buttonValue += "시"
+                                        }
+                                    
+                                    ZStack {
+                                        TextField("변경할 내용을 입력해주세요", text: $presentText)
+                                            .textFieldStyle(.roundedBorder)
+                                        Button {
+                                            //
+                                        } label: {
+                                            Image(systemName: "multiply.circle")
+                                                .foregroundColor( presentText == "" ? .clear : .black )
+                                        }
+                                        .frame(maxWidth: .infinity, alignment: .trailing)
+                                        .padding(.trailing, 5)
+                                    }
+                                    
+                                    //submit button
+                                    Button {
+                                        presentText = ""
+                                    } label: {
+                                        Text("Submit")
+                                            .foregroundColor(.white)
+                                    }
+                                    .padding()
+                                    .frame(maxWidth: .infinity, alignment: .center)
+                                    .background {
+                                        Capsule()
+                                            .foregroundColor(.blue)
+                                        
+                                    }
+                                    
+
+                                    
                                 }
-                                    .presentationDetents([.height(200)])
-                                    .presentationDragIndicator(.hidden)
+                                .padding(.horizontal)
+                                .presentationDetents([.height(150)])
+                                .presentationDragIndicator(.hidden)
                             }
                     }
                 }
@@ -69,62 +100,7 @@ struct TableView: View {
 //            .padding(.horizontal, -1)
 //
             
-            //sheet view
-//            if showPop {
-//                VStack {
-//                    Spacer()
-//                    VStack {
-//                        HStack {
-//                            Button {
-//                                showPop = false
-//                            } label: {
-//                                Text("cancel")
-//                                    .foregroundColor(.red)
-//                            }
-//
-//                            Spacer()
-//                            Text("submit")
-//                        }
-//                        //적혀져있떤거
-//                        Text("계획했던 일")
-//                            .frame(maxWidth: .infinity, alignment: .leading)
-//                            .offset(x:8, y: 10)
-//                            .zIndex(0)
-//                            .background(Color.gray)
-//
-//                        ZStack {
-//                            RoundedRectangle(cornerRadius: 10)
-//                                .stroke()
-//                                .frame(height: 50)
-//
-//
-//                            TextField("뭐라도 입력을 하세요", text: $writedText)
-//                                .padding(.leading)
-//                        }
-//
-//                        //적을꺼
-//                        Text("내가한 일")
-//                            .frame(maxWidth: .infinity, alignment: .leading)
-//                            .offset(x:8, y: 10)
-//                            .zIndex(0)
-//                            .background(Color.gray)
-//
-//                        ZStack {
-//                            RoundedRectangle(cornerRadius: 10)
-//                                .stroke()
-//                                .frame(height: 50)
-//
-//                            TextField("뭐라도 입력을 하세요", text: $writedText)
-//                                .padding(.leading)
-//                        }
-//
-//
-//                    }
-//                    .frame(maxWidth: .infinity)
-//                    .padding([.horizontal, .top], 10)
-//                    .background(Color.gray)
-//                }
-//            }
+          
             
             
         }

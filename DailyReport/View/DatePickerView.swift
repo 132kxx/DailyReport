@@ -62,7 +62,7 @@ struct DatePickerView: View {
                     .padding(.horizontal, 20)
                 }.onAppear{
                     let today = calendar.component(.day, from: Date())
-                    proxy.scrollTo(monthInt+today, anchor: .center)
+                    proxy.scrollTo(monthInt+today-1, anchor: .center)
                 }
             }
             
