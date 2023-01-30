@@ -19,19 +19,19 @@ struct TableView: View {
     var body: some View {
         ZStack {
             ScrollView(showsIndicators: false) {
-                ForEach(0..<viewmodel.models.count, id: \.self) { index in
+                ForEach(viewmodel.models, id: \.self) { model in
                     HStack {
-                        Text(viewmodel.modelData[index].hour)
+                        Text(model.hour)
                             .frame(width: screenWidth / 7, height: screenWidth / 8)
                         
                         Rectangle()
                             .foregroundColor(.clear)
                             .background {
                                 Button {
-                                    buttonValue = viewmodel.modelData[index].hour
+//                                    buttonValue = viewmodel.models.firstIndex(of: model)
                                     sheetValue.toggle()
                                 } label: {
-                                    Text(viewmodel.modelData[index].content)
+                                    Text(model.content)
                                         .frame(maxWidth: .infinity, alignment: .leading)
                                 }
                             }
@@ -44,7 +44,7 @@ struct TableView: View {
                                         .frame(maxWidth: .infinity, alignment: .leading)
                                         .padding(.top)
                                         .onAppear {
-                                            buttonValue += "시"
+//                                            buttonValue += "시"
                                         }
                                     
                                     ZStack {
@@ -62,7 +62,10 @@ struct TableView: View {
                                     
                                     //submit button
                                     Button {
+                                        viewmodel.editData(Int(model.hour), buttonValue, presentText)
+                                        print(model.content)
                                         presentText = ""
+                                        sheetValue = false
                                     } label: {
                                         Text("Submit")
                                             .foregroundColor(.white)
@@ -72,11 +75,7 @@ struct TableView: View {
                                     .background {
                                         Capsule()
                                             .foregroundColor(.blue)
-                                        
                                     }
-                                    
-
-                                    
                                 }
                                 .padding(.horizontal)
                                 .presentationDetents([.height(150)])
@@ -85,24 +84,6 @@ struct TableView: View {
                     }
                 }
             }
-            // time line
-//            HStack(spacing: -3) {
-//                Image(systemName: "triangle")
-//                    .resizable()
-//                    .aspectRatio(contentMode: .fit)
-//                    .frame(width: 17)
-//                    .rotationEffect(Angle(degrees: 90))
-//                    .foregroundColor(.red)
-//                Rectangle()
-//                    .frame(height: 1)
-//                    .foregroundColor(.red)
-//            }
-//            .padding(.horizontal, -1)
-//
-            
-          
-            
-            
         }
     }
 }

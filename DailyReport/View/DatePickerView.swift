@@ -9,7 +9,7 @@ import SwiftUI
 
 struct DatePickerView: View {
     
-    
+    let screenWidth = UIScreen.main.bounds.width
     let now = Date()
     let calendar = Calendar.current
     let monthInt = Calendar.current.component(.month, from: Date())
@@ -45,6 +45,9 @@ struct DatePickerView: View {
             ScrollViewReader {proxy in
                 ScrollView(.horizontal, showsIndicators: false) {
                     LazyHStack(spacing: 30) {
+                                Rectangle()
+                                    .frame(width: (screenWidth / 2) - 35, height: 0)
+                        
                                 ForEach(range, id: \.self) {index in
                                     Button {
                                         withAnimation {
@@ -57,15 +60,20 @@ struct DatePickerView: View {
                                             .foregroundColor(.black)
                                     }
                                 }
+                        
+                        Rectangle()
+                            .frame(width: (screenWidth / 2) - 38, height: 0)
+                        
                     }
-                    .frame(height: 50)
-                    .padding(.horizontal, 20)
-                }.onAppear{
+                    .frame(height: 40)
+                }
+                .onAppear{
                     let today = calendar.component(.day, from: Date())
                     proxy.scrollTo(monthInt+today-1, anchor: .center)
                 }
             }
             
+            //indicator
             Circle()
                 .frame(width: 5, height: 5)
                 .foregroundColor(.red)

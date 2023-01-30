@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct model: Identifiable {
+struct model: Identifiable, Hashable {
     var id = UUID()
     var hour: String
     var content: String

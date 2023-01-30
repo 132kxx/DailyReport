@@ -18,8 +18,12 @@ class ViewModel: ObservableObject {
         models = modelData
     }
     
-    func editData(_ hour: Int, _ content: String) {
-        modelData[hour].content = content
+    func editData(_ index: Int?, _ hour: String, _ content: String) {
+        if let i = index {
+            models[i] = model(hour: hour, content: content)
+        } else {
+            //
+        }
     }
     
     @Published var modelData = [
