@@ -14,39 +14,42 @@ struct TableView: View {
     @ObservedObject var viewmodel = ViewModel()
     @State var sheetValue: Bool = false
     @State var presentText: String = ""
-    @State var buttonValue: String = ""
+    @State var hour: String = ""
+    @State var buttonIndex: Int = 0
     
     var body: some View {
         ZStack {
             ScrollView(showsIndicators: false) {
-                ForEach(viewmodel.models, id: \.self) { model in
+                ForEach(0 ..< viewmodel.models.count, id: \.self) { index in
                     HStack {
-                        Text(model.hour)
+                        Text(viewmodel.models[index].hour)
                             .frame(width: screenWidth / 7, height: screenWidth / 8)
                         
                         Rectangle()
                             .foregroundColor(.clear)
                             .background {
                                 Button {
-//                                    buttonValue = viewmodel.models.firstIndex(of: model)
+                                    hour = viewmodel.models[index].hour
+                                    buttonIndex = index
                                     sheetValue.toggle()
                                 } label: {
-                                    Text(model.content)
+                                    Text(viewmodel.models[index].content)
                                         .frame(maxWidth: .infinity, alignment: .leading)
                                 }
                             }
                             .contentShape(Rectangle())
                             .sheet(isPresented: $sheetValue) {
                                 VStack(spacing: 15) {
-                                    
-                                    Text("\(buttonValue)")
+                                    // current time
+                                    Text(hour)
                                         .fontWeight(.bold)
                                         .frame(maxWidth: .infinity, alignment: .leading)
                                         .padding(.top)
                                         .onAppear {
-//                                            buttonValue += "시"
+                                            hour += "시"
                                         }
                                     
+                                    // textfield
                                     ZStack {
                                         TextField("변경할 내용을 입력해주세요", text: $presentText)
                                             .textFieldStyle(.roundedBorder)
@@ -62,8 +65,7 @@ struct TableView: View {
                                     
                                     //submit button
                                     Button {
-                                        viewmodel.editData(Int(model.hour), buttonValue, presentText)
-                                        print(model.content)
+                                        viewmodel.editData(buttonIndex, viewmodel.models[buttonIndex].hour, presentText)
                                         presentText = ""
                                         sheetValue = false
                                     } label: {

@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct model: Identifiable, Hashable {
-    var id = UUID()
+    var id = UUID().uuidString
     var hour: String
     var content: String
 }
