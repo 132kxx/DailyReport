@@ -11,7 +11,7 @@ class ViewModel: ObservableObject {
     @Published var models: [model] = []
     
     init() {
-        addData()
+        initData(8, 24)
     }
     
     func addData() {
@@ -23,6 +23,12 @@ class ViewModel: ObservableObject {
             models[i] = model(hour: hour, content: content)
         } else {
             //
+        }
+    }
+    
+    func initData(_ startTime: Int, _ endTime: Int) {
+        for index in 0 ..< endTime-startTime {
+            models.append(model(hour: String(startTime + index), content: "내용을 입력해주세요"))
         }
     }
     

@@ -7,13 +7,7 @@
 
 import SwiftUI
 
-struct HomeView: View {
-    let screenWidth = UIScreen.main.bounds.width
-    let screenHidth = UIScreen.main.bounds.height
-    
-    @ObservedObject var viewModel = ViewModel()
-    @State private var placeholder: String = ""
-
+struct MainView: View {
     var body: some View {
         VStack {
             DatePickerView()

@@ -22,22 +22,23 @@ struct TableView: View {
             ScrollView(showsIndicators: false) {
                 ForEach(0 ..< viewmodel.models.count, id: \.self) { index in
                     HStack {
+                        //time line
                         Text(viewmodel.models[index].hour)
                             .frame(width: screenWidth / 7, height: screenWidth / 8)
                         
-                        Rectangle()
-                            .foregroundColor(.clear)
-                            .background {
-                                Button {
-                                    hour = viewmodel.models[index].hour
-                                    buttonIndex = index
-                                    sheetValue.toggle()
-                                } label: {
-                                    Text(viewmodel.models[index].content)
-                                        .frame(maxWidth: .infinity, alignment: .leading)
-                                }
-                            }
-                            .contentShape(Rectangle())
+                        //content line
+                        Button {
+                            hour = viewmodel.models[index].hour
+                            buttonIndex = index
+                            sheetValue.toggle()
+                        } label: {
+                            Text(viewmodel.models[index].content)
+                                .frame(maxWidth: .infinity, alignment: .leading)
+                                .contentShape(Rectangle())
+                                .foregroundColor(viewmodel.models[index].content == "내용을 입력해주세요" ? .secondary : .blue)
+                        }
+
+                        //sheet
                             .sheet(isPresented: $sheetValue) {
                                 VStack(spacing: 15) {
                                     // current time
@@ -47,17 +48,24 @@ struct TableView: View {
                                         .padding(.top)
                                         .onAppear {
                                             hour += "시"
+                                            presentText = "" 
                                         }
                                     
                                     // textfield
                                     ZStack {
-                                        TextField("변경할 내용을 입력해주세요", text: $presentText)
+                                        TextField(viewmodel.models[buttonIndex].content, text: $presentText)
                                             .textFieldStyle(.roundedBorder)
                                         Button {
-                                            //
+                                            presentText = ""
                                         } label: {
-                                            Image(systemName: "multiply.circle")
-                                                .foregroundColor( presentText == "" ? .clear : .black )
+                                            Text("delete")
+                                                .foregroundColor(presentText == "" ? .clear : .white)
+                                                .padding(5)
+                                                .background {
+                                                    RoundedRectangle(cornerRadius: 8)
+                                                        .foregroundColor( presentText == "" ? .clear : .red )
+                                                }
+                                                
                                         }
                                         .frame(maxWidth: .infinity, alignment: .trailing)
                                         .padding(.trailing, 5)
@@ -71,9 +79,9 @@ struct TableView: View {
                                     } label: {
                                         Text("Submit")
                                             .foregroundColor(.white)
+                                            .padding()
+                                            .frame(maxWidth: .infinity, alignment: .center)
                                     }
-                                    .padding()
-                                    .frame(maxWidth: .infinity, alignment: .center)
                                     .background {
                                         Capsule()
                                             .foregroundColor(.blue)
@@ -81,7 +89,7 @@ struct TableView: View {
                                 }
                                 .padding(.horizontal)
                                 .presentationDetents([.height(150)])
-                                .presentationDragIndicator(.hidden)
+                                .presentationDragIndicator(.visible)
                             }
                     }
                 }
@@ -96,3 +104,6 @@ struct TableView_Previews: PreviewProvider {
 //            .preferredColorScheme(.dark)
     }
 }
+
+
+//

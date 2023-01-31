@@ -9,9 +9,14 @@ import SwiftUI
 
 @main
 struct DailyReportApp: App {
+    
+    @ObservedObject var viewmodel = ViewModel()
+    
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .environmentObject(viewmodel)
         }
+        
     }
 }

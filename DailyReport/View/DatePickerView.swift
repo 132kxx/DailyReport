@@ -28,7 +28,8 @@ struct DatePickerView: View {
     
     var body: some View {
         VStack {
-            // month, year stack
+            
+            // month, year indicator
             HStack() {
                 Text(Date().toString("MMMM"))
                         .font(.system(size: 40))
@@ -73,14 +74,16 @@ struct DatePickerView: View {
                 }
             }
             
-            //indicator
-            Circle()
-                .frame(width: 5, height: 5)
-                .foregroundColor(.red)
-
-            }
+            // today indicator
+            HStack(spacing: 0) {
+                Circle()
+                    .frame(width: 5, height: 5)
+                    .foregroundColor(.red)
+                }
+            
         }
     }
+}
 
 struct DatePickerView_Previews: PreviewProvider {
     static var previews: some View {
