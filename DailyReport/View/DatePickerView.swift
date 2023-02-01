@@ -10,15 +10,13 @@ import SwiftUI
 struct DatePickerView: View {
     
     let screenWidth = UIScreen.main.bounds.width
-    let now = Date()
     let calendar = Calendar.current
-    let monthInt = Calendar.current.component(.month, from: Date())
-    let yearInt = String(Calendar.current.component(.year, from: Date()))
-    var monthStr : String {
-        get  {
-            return Calendar.current.monthSymbols[monthInt-1]
-        }
-    }
+    
+//    var prerange : Range<Int> {
+//        get {
+//            return calendar.range(of: .day, in: .month, for: Date(timeIntervalSinceNow: -10.00)! //
+//        }
+//    }
     
     var range : Range<Int> {
         get {
@@ -38,29 +36,30 @@ struct DatePickerView: View {
                 
                     Text(Date().toString("YYYY"))
                     .foregroundColor(.secondary)
-                
+
 
                 Spacer()
             }
             
+            //wheel picker
             ScrollViewReader {proxy in
                 ScrollView(.horizontal, showsIndicators: false) {
                     LazyHStack(spacing: 30) {
-                                Rectangle()
-                                    .frame(width: (screenWidth / 2) - 35, height: 0)
-                        
-                                ForEach(range, id: \.self) {index in
-                                    Button {
-                                        withAnimation {
-                                            let today = index
-                                            proxy.scrollTo(today, anchor: .center)
-                                        }
-                                    } label: {
-                                        Text("\(index)")
-                                            .id(monthInt+index)
-                                            .foregroundColor(.black)
-                                    }
+                        Rectangle()
+                            .frame(width: (screenWidth / 2) - 35, height: 0)
+                
+                        ForEach(range, id: \.self) {index in
+                            Button {
+                                withAnimation {
+                                    proxy.scrollTo(index, anchor: .center)
                                 }
+                            } label: {
+                                Text("\(index)")
+//                                    .id(monthInt+index)
+                                    .foregroundColor(.black)
+                                    
+                            }
+                        }
                         
                         Rectangle()
                             .frame(width: (screenWidth / 2) - 38, height: 0)
@@ -68,10 +67,10 @@ struct DatePickerView: View {
                     }
                     .frame(height: 40)
                 }
-                .onAppear{
+                .onAppear {
                     let today = calendar.component(.day, from: Date())
-                    proxy.scrollTo(monthInt+today-1, anchor: .center)
-                }
+                    proxy.scrollTo(today, anchor: .center)
+                    }
             }
             
             // today indicator
