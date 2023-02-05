@@ -30,12 +30,13 @@ struct DatePickerView: View {
             // month, year indicator
             HStack() {
                 Text(Date().toString("MMMM"))
-                        .font(.system(size: 40))
+                    .font(.system(size: 40, design: .serif))
                         .padding(.leading, 20)
                         .fontWeight(.bold)
                 
                     Text(Date().toString("YYYY"))
                     .foregroundColor(.secondary)
+                    .font(.system(.body, design: .serif))
 
 
                 Spacer()
