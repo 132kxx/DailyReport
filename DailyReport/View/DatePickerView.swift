@@ -12,36 +12,29 @@ struct DatePickerView: View {
     let screenWidth = UIScreen.main.bounds.width
     let calendar = Calendar.current
     
-//    var prerange : Range<Int> {
-//        get {
-//            return calendar.range(of: .day, in: .month, for: Date(timeIntervalSinceNow: -10.00)! //
-//        }
-//    }
-    
     var range : Range<Int> {
         get {
+            let calendar = Calendar.current
             return calendar.range(of: .day, in: .month, for: Date())! //
         }
     }
     
+    
     var body: some View {
         VStack {
-            
             // month, year indicator
             HStack() {
                 Text(Date().toString("MMMM"))
                     .font(.system(size: 40, design: .serif))
-                        .padding(.leading, 20)
-                        .fontWeight(.bold)
+                    .padding(.leading, 20)
+                    .fontWeight(.bold)
                 
-                    Text(Date().toString("YYYY"))
+                Text(Date().toString("YYYY"))
                     .foregroundColor(.secondary)
                     .font(.system(.body, design: .serif))
-
-
+                
                 Spacer()
             }
-            
             //wheel picker
             ScrollViewReader {proxy in
                 ScrollView(.horizontal, showsIndicators: false) {
