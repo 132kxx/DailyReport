@@ -13,7 +13,7 @@
 		B457B880295736F1000B6688 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B457B87F295736F1000B6688 /* Preview Assets.xcassets */; };
 		B457B88829573782000B6688 /* MainViewe.swift in Sources */ = {isa = PBXBuildFile; fileRef = B457B88729573782000B6688 /* MainViewe.swift */; };
 		B49DAEB929595C97001E598C /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B49DAEB829595C97001E598C /* ViewModel.swift */; };
-		B49DAEBC29595CBC001E598C /* mainModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B49DAEBB29595CBC001E598C /* mainModel.swift */; };
+		B49DAEBC29595CBC001E598C /* Main.swift in Sources */ = {isa = PBXBuildFile; fileRef = B49DAEBB29595CBC001E598C /* Main.swift */; };
 		B49DAEC02959608F001E598C /* DatePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B49DAEBF2959608F001E598C /* DatePickerView.swift */; };
 		B49DAEC4295960EB001E598C /* TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B49DAEC3295960EB001E598C /* TableView.swift */; };
 /* End PBXBuildFile section */
@@ -27,7 +27,7 @@
 		B457B87F295736F1000B6688 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		B457B88729573782000B6688 /* MainViewe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewe.swift; sourceTree = "<group>"; };
 		B49DAEB829595C97001E598C /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
-		B49DAEBB29595CBC001E598C /* mainModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mainModel.swift; sourceTree = "<group>"; };
+		B49DAEBB29595CBC001E598C /* Main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Main.swift; sourceTree = "<group>"; };
 		B49DAEBF2959608F001E598C /* DatePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerView.swift; sourceTree = "<group>"; };
 		B49DAEC3295960EB001E598C /* TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -103,7 +103,7 @@
 		B49DAEBA29595CB4001E598C /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				B49DAEBB29595CBC001E598C /* mainModel.swift */,
+				B49DAEBB29595CBC001E598C /* Main.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -179,7 +179,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B457B88829573782000B6688 /* MainViewe.swift in Sources */,
-				B49DAEBC29595CBC001E598C /* mainModel.swift in Sources */,
+				B49DAEBC29595CBC001E598C /* Main.swift in Sources */,
 				B49DAEB929595C97001E598C /* ViewModel.swift in Sources */,
 				B457B87A295736EF000B6688 /* ContentView.swift in Sources */,
 				B49DAEC02959608F001E598C /* DatePickerView.swift in Sources */,
