@@ -11,7 +11,9 @@ class ViewModel: ObservableObject {
     @Published var tasks: [task] = []
     
     init() {
-        tasks = dommy
+        for index in 8 ..< 24 {
+            tasks.append(task(date: "27", hour: String(index), content: "내용을 입력해주세요"))
+        }
     }
     
 //    func initData(_ startTime: Int, _ endTime: Int, _ date: String) {
@@ -26,17 +28,17 @@ class ViewModel: ObservableObject {
 //        )
 //    }
 //
-//    func editData(index: Int?, content: String) {
-//        if let i = index {
-//            models[i].content = content
-//        } else {
-//            //
-//        }
-//    }
+    func editData(index: Int?, content: String) {
+        if let i = index {
+            tasks[i].content = content
+        } else {
+            //
+        }
+    }
     
 var dommy: [task] = [
-    task(date: "26", hour: "8", content: "기상하기"),
-    task(date: "26", hour: "10", content: "아슬란가기")
+    task(date: "27", hour: "8", content: "기상하기"),
+    task(date: "27", hour: "10", content: "아슬란가기")
 ]
 
 }

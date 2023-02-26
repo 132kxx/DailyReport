@@ -11,6 +11,6 @@ struct task: Identifiable, Hashable {
     let id: String = UUID().uuidString
     let date: String
     let hour: String
-    let content: String
+    var content: String
 }
 
