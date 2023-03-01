@@ -12,6 +12,10 @@ struct DatePickerView: View {
     let screenWidth = UIScreen.main.bounds.width
     let calendar = Calendar.current
     
+    @State var yearText: String = Date().toString("YYYY")
+    @State var monthText: String = Date().toString("MMMM")
+    @State var toDay: Int = 1
+    
     var range : Range<Int> {
         get {
             let calendar = Calendar.current
@@ -24,12 +28,12 @@ struct DatePickerView: View {
         VStack {
             // month, year indicator
             HStack() {
-                Text(Date().toString("MMMM"))
+                Text(monthText)
                     .font(.system(size: 40, design: .serif))
                     .padding(.leading, 20)
                     .fontWeight(.bold)
                 
-                Text(Date().toString("YYYY"))
+                Text(yearText)
                     .foregroundColor(.secondary)
                     .font(.system(.body, design: .serif))
                 
@@ -62,8 +66,8 @@ struct DatePickerView: View {
                     .frame(height: 40)
                 }
                 .onAppear {
-                    let today = calendar.component(.day, from: Date())
-                    proxy.scrollTo(today, anchor: .center)
+                    toDay = calendar.component(.day, from: Date())
+                    proxy.scrollTo(toDay, anchor: .center)
                     }
             }
             

@@ -11,12 +11,18 @@ struct TableView: View {
     let screenWidth = UIScreen.main.bounds.width
     let screenHidth = UIScreen.main.bounds.height
     
+    @State var taskdic: [String:String] = [:]
+    
     @StateObject var viewmodel = ViewModel()
     @State var sheetValue: Bool = false
     @State var presentText: String = ""
     @State var hour: String = ""
     @State var buttonIndex: Int = 0
     @State var contentText: String = "내용을 입력해주세요"
+    @State var idValue: String = ""
+
+    @State private var yearText: String = Date().toString("YYYY")
+    @State private var monthText: String = Date().toString("MMMM")
     
     var body: some View {
         ZStack {
@@ -30,13 +36,20 @@ struct TableView: View {
                         
                         //content line
                         Button {
-//                            viewmodel.editData(index: Int(task.hour)! - 8, content: "hi")
+                            idValue = DatePickerView().yearText + DatePickerView().monthText + String(DatePickerView().toDay) + task.hour
                             sheetValue.toggle()
                         } label: {
-                            Text(task.content)
-                                .foregroundColor(.black)
-                                .frame(maxWidth: .infinity, alignment: .leading)
+                            if let content = idValue {
+                                if idValue.suffix(1) == task.hour {
+                                    Text(taskdic[idValue] ?? "hi")
+                                } else {
+                                    Text("내용을 입력해주세요")
+                                }
+                            } else {
+                               
+                            }
                         }
+                        .frame(maxWidth: .infinity, alignment: .leading)
 
                     }
                     //sheet
@@ -54,12 +67,12 @@ struct TableView: View {
 
                             // textfield
                             ZStack {
-                                
                                 TextField("내용", text: $presentText)
                                     .textFieldStyle(.roundedBorder)
                                 
+                                // delete button
                                 Button {
-//                                    presentText = ""
+                                    presentText = ""
                                 } label: {
                                     Text("delete")
                                         .foregroundColor(presentText == "" ? .clear : .white)
@@ -76,9 +89,9 @@ struct TableView: View {
 
                             //submit button
                             Button {
-//                                viewmodel.editData(index: , content: presentText)
-//                                presentText = ""
-//                                sheetValue = false
+                                updateDic()
+                                presentText = ""
+                                sheetValue = false
                             } label: {
                                 Text("Submit")
                                     .foregroundColor(.white)
@@ -97,6 +110,10 @@ struct TableView: View {
                 }
             }
         }
+    }
+    
+    func updateDic() {
+        taskdic[idValue] = presentText
     }
 }
 
