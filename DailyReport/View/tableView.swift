@@ -33,14 +33,14 @@ struct TableView: View {
                         Text(task.hour)
                             .frame(width: screenWidth / 7, height: screenWidth / 8)
                         
-                        
                         //content line
                         Button {
                             idValue = DatePickerView().yearText + DatePickerView().monthText + String(DatePickerView().toDay) + task.hour
                             sheetValue.toggle()
                         } label: {
+                            // isidValue -> i
                             if let content = idValue {
-                                if idValue.suffix(1) == task.hour {
+                                if content.suffix(1) == task.hour {
                                     Text(taskdic[idValue] ?? "hi")
                                 } else {
                                     Text("내용을 입력해주세요")
@@ -112,10 +112,19 @@ struct TableView: View {
         }
     }
     
+    
+//MARK: FUNC
     func updateDic() {
         taskdic[idValue] = presentText
     }
+    
+    func getContentValue(cotent: String) {
+        
+    }
 }
+
+//MARK: COMPONENT
+
 
 struct TableView_Previews: PreviewProvider {
     static var previews: some View {
