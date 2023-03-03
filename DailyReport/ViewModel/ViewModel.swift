@@ -8,19 +8,21 @@
 import SwiftUI
 
 class ViewModel: ObservableObject {
-    @Published var tasks: [task] = []
-    
+    @Published var tasks: [Task] = []
+        
     init() {
-        for index in 8 ..< 24 {
-            tasks.append(task(date: "27", hour: String(index), content: "내용을 입력해주세요"))
-        }
+        getData()
     }
-    
-//    func initData(_ startTime: Int, _ endTime: Int, _ date: String) {
-//        for index in 0 ..< endTime-startTime {
-//            models.append(model(date: date, hour: String(startTime + index), content: "내용을 입력해주세요"))
-//        }
-//    }
+
+    func getData() {
+        let dommyData: [Task] = [
+            Task(hour: "8", content: "기상하기"),
+            Task(hour: "9", content: "배드민턴"),
+            Task(hour: "10", content: "코딩")
+        ]
+        
+        tasks.append(contentsOf: dommyData)
+    }
 //
 //    func addData(date: String, hour: String, content: String) {
 //        models.append(
@@ -28,18 +30,14 @@ class ViewModel: ObservableObject {
 //        )
 //    }
 //
-    func editData(index: Int?, content: String) {
-        if let i = index {
-            tasks[i].content = content
-        } else {
-            //
-        }
-    }
-    
-var dommy: [task] = [
-    task(date: "27", hour: "8", content: "기상하기"),
-    task(date: "27", hour: "10", content: "아슬란가기")
-]
+//    func editData(index: Int?, content: String) {
+//        if let i = index {
+//            tasks[i].content = content
+//        } else {
+//            //
+//        }
+//    }
+//
 
 }
 

@@ -7,11 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B44336D429B1AC71006FEECE /* TaskRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B44336D329B1AC71006FEECE /* TaskRowView.swift */; };
 		B457B878295736EF000B6688 /* DailyReportApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B457B877295736EF000B6688 /* DailyReportApp.swift */; };
-		B457B87A295736EF000B6688 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B457B879295736EF000B6688 /* ContentView.swift */; };
 		B457B87C295736F1000B6688 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B457B87B295736F1000B6688 /* Assets.xcassets */; };
 		B457B880295736F1000B6688 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B457B87F295736F1000B6688 /* Preview Assets.xcassets */; };
-		B457B88829573782000B6688 /* MainViewe.swift in Sources */ = {isa = PBXBuildFile; fileRef = B457B88729573782000B6688 /* MainViewe.swift */; };
+		B457B88829573782000B6688 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B457B88729573782000B6688 /* MainView.swift */; };
 		B49DAEB929595C97001E598C /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B49DAEB829595C97001E598C /* ViewModel.swift */; };
 		B49DAEBC29595CBC001E598C /* Main.swift in Sources */ = {isa = PBXBuildFile; fileRef = B49DAEBB29595CBC001E598C /* Main.swift */; };
 		B49DAEC02959608F001E598C /* DatePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B49DAEBF2959608F001E598C /* DatePickerView.swift */; };
@@ -19,13 +19,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B44336D329B1AC71006FEECE /* TaskRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskRowView.swift; sourceTree = "<group>"; };
 		B457B874295736EF000B6688 /* DailyReport.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DailyReport.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B457B877295736EF000B6688 /* DailyReportApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyReportApp.swift; sourceTree = "<group>"; };
-		B457B879295736EF000B6688 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		B457B87B295736F1000B6688 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B457B87D295736F1000B6688 /* DailyReport.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = DailyReport.entitlements; sourceTree = "<group>"; };
 		B457B87F295736F1000B6688 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		B457B88729573782000B6688 /* MainViewe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewe.swift; sourceTree = "<group>"; };
+		B457B88729573782000B6688 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		B49DAEB829595C97001E598C /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		B49DAEBB29595CBC001E598C /* Main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Main.swift; sourceTree = "<group>"; };
 		B49DAEBF2959608F001E598C /* DatePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerView.swift; sourceTree = "<group>"; };
@@ -66,7 +66,6 @@
 				B49DAEB729595C87001E598C /* ViewModel */,
 				B457B88629573777000B6688 /* View */,
 				B457B877295736EF000B6688 /* DailyReportApp.swift */,
-				B457B879295736EF000B6688 /* ContentView.swift */,
 				B457B87B295736F1000B6688 /* Assets.xcassets */,
 				B457B87D295736F1000B6688 /* DailyReport.entitlements */,
 				B457B87E295736F1000B6688 /* Preview Content */,
@@ -85,9 +84,10 @@
 		B457B88629573777000B6688 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				B457B88729573782000B6688 /* MainView.swift */,
 				B49DAEBF2959608F001E598C /* DatePickerView.swift */,
 				B49DAEC3295960EB001E598C /* TableView.swift */,
-				B457B88729573782000B6688 /* MainViewe.swift */,
+				B44336D329B1AC71006FEECE /* TaskRowView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -178,10 +178,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B457B88829573782000B6688 /* MainViewe.swift in Sources */,
+				B457B88829573782000B6688 /* MainView.swift in Sources */,
 				B49DAEBC29595CBC001E598C /* Main.swift in Sources */,
+				B44336D429B1AC71006FEECE /* TaskRowView.swift in Sources */,
 				B49DAEB929595C97001E598C /* ViewModel.swift in Sources */,
-				B457B87A295736EF000B6688 /* ContentView.swift in Sources */,
 				B49DAEC02959608F001E598C /* DatePickerView.swift in Sources */,
 				B49DAEC4295960EB001E598C /* TableView.swift in Sources */,
 				B457B878295736EF000B6688 /* DailyReportApp.swift in Sources */,

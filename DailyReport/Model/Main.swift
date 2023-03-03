@@ -7,10 +7,9 @@
 
 import SwiftUI
 
-struct task: Identifiable, Hashable {
+struct Task: Identifiable, Hashable {
     let id: String = UUID().uuidString
-    let date: String
     let hour: String
-    var content: String
+    let content: String
 }
 
