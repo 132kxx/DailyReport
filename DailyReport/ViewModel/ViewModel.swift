@@ -8,36 +8,30 @@
 import SwiftUI
 
 class ViewModel: ObservableObject {
-    @Published var tasks: [Task] = []
-        
+    @Published var tasks: [Task] = [] {
+        didSet {
+            saveItem()
+        }
+    }
+
+    let saveKey: String = "task_list"
+    
     init() {
         getData()
     }
 
     func getData() {
-        let dommyData: [Task] = [
-            Task(hour: "8", content: "기상하기"),
-            Task(hour: "9", content: "배드민턴"),
-            Task(hour: "10", content: "코딩")
-        ]
-        
-        tasks.append(contentsOf: dommyData)
+        guard
+            let data = UserDefaults.standard.data(forKey: saveKey),
+            let savedItem = try? JSONDecoder().decode([Task].self, from: data)
+        else { return }
+        tasks = savedItem
     }
-//
-//    func addData(date: String, hour: String, content: String) {
-//        models.append(
-//        model(date: date, hour: hour, content: content)
-//        )
-//    }
-//
-//    func editData(index: Int?, content: String) {
-//        if let i = index {
-//            tasks[i].content = content
-//        } else {
-//            //
-//        }
-//    }
-//
+
+    func saveItem() {
+        guard let saveitem = try? JSONEncoder().encode(tasks) else { return }
+        UserDefaults.standard.set(saveitem, forKey: saveKey)
+    }
 
 }
 

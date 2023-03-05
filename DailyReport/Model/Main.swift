@@ -7,8 +7,8 @@
 
 import SwiftUI
 
-struct Task: Identifiable, Hashable {
-    let id: String = UUID().uuidString
+struct Task: Identifiable, Hashable, Codable {
+    let id: String
     let hour: String
     let content: String
 }
