@@ -14,8 +14,10 @@ struct DailyReportApp: App {
     
     var body: some Scene {
         WindowGroup {
-            MainView()
-                .environmentObject(viewmodel)
+            NavigationStack {
+                MainView()
+                    .environmentObject(viewmodel)
+            }
         }
         
     }

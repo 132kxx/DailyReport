@@ -19,6 +19,10 @@ class ViewModel: ObservableObject {
     init() {
         getData()
     }
+    
+    func addItem(hour: String, content: String) {
+        tasks.append(Task(hour: hour, content: content))
+    }
 
     func getData() {
         guard

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B40DF0B029B5DD50009233FA /* AddView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B40DF0AF29B5DD50009233FA /* AddView.swift */; };
 		B44336D429B1AC71006FEECE /* TaskRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B44336D329B1AC71006FEECE /* TaskRowView.swift */; };
 		B457B878295736EF000B6688 /* DailyReportApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B457B877295736EF000B6688 /* DailyReportApp.swift */; };
 		B457B87C295736F1000B6688 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B457B87B295736F1000B6688 /* Assets.xcassets */; };
@@ -19,6 +20,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B40DF0AF29B5DD50009233FA /* AddView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddView.swift; sourceTree = "<group>"; };
 		B44336D329B1AC71006FEECE /* TaskRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskRowView.swift; sourceTree = "<group>"; };
 		B457B874295736EF000B6688 /* DailyReport.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DailyReport.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B457B877295736EF000B6688 /* DailyReportApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyReportApp.swift; sourceTree = "<group>"; };
@@ -88,6 +90,7 @@
 				B49DAEBF2959608F001E598C /* DatePickerView.swift */,
 				B49DAEC3295960EB001E598C /* TableView.swift */,
 				B44336D329B1AC71006FEECE /* TaskRowView.swift */,
+				B40DF0AF29B5DD50009233FA /* AddView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -182,6 +185,7 @@
 				B49DAEBC29595CBC001E598C /* Main.swift in Sources */,
 				B44336D429B1AC71006FEECE /* TaskRowView.swift in Sources */,
 				B49DAEB929595C97001E598C /* ViewModel.swift in Sources */,
+				B40DF0B029B5DD50009233FA /* AddView.swift in Sources */,
 				B49DAEC02959608F001E598C /* DatePickerView.swift in Sources */,
 				B49DAEC4295960EB001E598C /* TableView.swift in Sources */,
 				B457B878295736EF000B6688 /* DailyReportApp.swift in Sources */,

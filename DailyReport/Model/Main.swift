@@ -11,5 +11,11 @@ struct Task: Identifiable, Hashable, Codable {
     let id: String
     let hour: String
     let content: String
+    
+    init(id: String = UUID().uuidString, hour: String, content: String) {
+        self.id = id
+        self.hour = hour
+        self.content = content
+    }
 }
 
