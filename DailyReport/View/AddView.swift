@@ -9,30 +9,57 @@ import SwiftUI
 
 struct AddView: View {
     
+    @Environment(\.dismiss) var dismiss
+    
     @State var textFieldText: String = ""
-    var hour: String
     
     var body: some View {
             VStack(spacing: 20) {
-                Text(hour)
+                
+                // dismiss btn
+                Button {
+                    dismiss()
+                } label: {
+                    Image(systemName: "xmark")
+                        .frame(maxWidth: .infinity, alignment: .center)
+                        .foregroundColor(.black)
+                        .padding()
+                        .background() {
+                            Circle()
+                                .stroke()
+                                .foregroundColor(.black)
+                        }
+                }
+                
+                Spacer()
+
+                Text("9")
+                    .bold()
                     .frame(maxWidth: .infinity, alignment: .leading)
                 TextField("hello", text: $textFieldText)
                     .padding()
-                    .background{Color(UIColor.secondarySystemBackground)}
-                    .cornerRadius(10)
+                    .background {
+                        RoundedRectangle(cornerRadius: 20)
+                            .stroke()
+                    }
+                   
                 
                 Button {
                     
                 } label: {
-                    Text("Submit")
-                        .frame(maxWidth: .infinity)
-                        .padding(.vertical, 8)
-                        .foregroundColor(.white)
-                        .background(Color.blue)
-                        .cornerRadius(10)
-                        .padding(.horizontal, 50)
+                    Text("Submit".uppercased())
+                        .bold()
+                        .foregroundColor(.black)
+                        .padding(8)
+                        .background {
+                            Capsule()
+                                .stroke()
+                                .foregroundColor(.black)
+                                
+                        }
                 }
 
+                Spacer()
 
             }
             .padding(.horizontal, 30)

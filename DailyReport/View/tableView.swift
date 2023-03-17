@@ -21,30 +21,17 @@ struct TableView: View {
 
     var body: some View {
         NavigationStack {
-            ZStack {
-                ScrollView(showsIndicators: false) {
-                    ForEach(viewmodel.tasks) { task in
-                        TaskRowView(showSheet: $showSheet, hour: task.hour, content: task.content)
-                    }
-                }
-                
-                VStack {
-                    Spacer()
-                    HStack {
-                        Spacer()
-                        Button {
-                            NavigationLink("hello", destination: AddView(hour: "8시"))
-                        } label: {
-                            Image(systemName: "plus.circle")
-                                .resizable()
-                                .frame(width: 50, height: 50)
+            VStack {
+                ScrollView(.horizontal, showsIndicators: false) {
+                    HStack(spacing: 60) {
+                        ForEach(0..<3) { _ in
+                            cardView
                         }
-                        .padding(.trailing, 40)
-                        .padding(.bottom, 20)
                     }
+                    .padding(.horizontal, 48)
                 }
-
             }
+            .padding(.vertical, 50)
         }
     }
 }
@@ -56,4 +43,40 @@ struct TableView_Previews: PreviewProvider {
     }
 }
 
-// MARK: COMPONENT
+
+extension TableView {
+    // MARK: COMPONENT
+    var addItemBtn: some View {
+        VStack {
+            Button {
+                    showSheet.toggle()
+            } label: {
+                Text("Add Item".uppercased())
+                    .bold()
+                    .foregroundColor(.black)
+                    .padding(8)
+                    .background {
+                        Capsule()
+                            .stroke()
+                            .foregroundColor(.black)
+                    }
+            }
+        }
+    }
+    
+    var cardView: some View {
+        RoundedRectangle(cornerRadius: 30).stroke()
+            .frame(width: 300, height: 450)
+            .cornerRadius(10)
+        
+        .overlay {
+            VStack {
+                addItemBtn
+            }
+        }
+    }
+    
+    // MARK: FUNCTION
+    
+}
+
